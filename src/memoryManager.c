@@ -1,6 +1,8 @@
 #include"memoryManager.h"
 
 int* allocate(int size)  {
+	if(size <= 0)
+		return NULL;
 	for(int i = 0; i < BLOCKS;i++) { // Iterate through all the blocks
 		if(!occupied[i]) { // Check for first unoccupied block
 			if(size <= SIZE - i*(SIZE/BLOCKS)) { // Check if requested size can be allocated
